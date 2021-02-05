@@ -34,7 +34,7 @@
 namespace android {
 namespace init {
 
-static std::string init_fatal_reboot_target = "bootloader";
+static std::string init_fatal_reboot_target = "recovery";
 static bool init_fatal_panic = false;
 
 void SetFatalRebootTarget() {
@@ -48,7 +48,7 @@ void SetFatalRebootTarget() {
     const char kRebootTargetString[] = "androidboot.init_fatal_reboot_target=";
     auto start_pos = cmdline.find(kRebootTargetString);
     if (start_pos == std::string::npos) {
-        return;  // We already default to bootloader if no setting is provided.
+        return;  // We already default to recovery if no setting is provided
     }
     start_pos += sizeof(kRebootTargetString) - 1;
 
